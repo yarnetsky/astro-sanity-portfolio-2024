@@ -1,4 +1,5 @@
-import {defineField, defineType} from 'sanity'
+import { format, parseISO } from 'date-fns';
+import { defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'post',
@@ -9,6 +10,7 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
@@ -39,16 +41,23 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'datetime',
+      initialValue: () => new Date().toISOString(),
+    }),
   ],
   preview: {
     select: {
       title: 'title',
       author: 'author.name',
+      date: 'date',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const { author } = selection;
+      return { ...selection, subtitle: author && `by ${author}` };
     },
   },
-})
+});
