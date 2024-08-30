@@ -22,7 +22,7 @@ export interface Page {
   _type: "page";
   _createdAt: string;
   title?: string;
-  sections: Sections[];
+  sections: string[];
   slug: Slug;
   excerpt?: string;
   mainImage?: ImageAsset;
