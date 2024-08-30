@@ -2,13 +2,13 @@
 import Card from "../components/Card.astro";
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
-import { getPosts } from "../utils/sanity";
+import { getPages } from "../utils/sanity";
 
-const posts = await getPosts();
+const pages = await getPages();
 ---
 
 <Layout title="Welcome to Astro.">
   <section>
-    {posts.length ? posts.map((post) => <Card post={post} />) : <Welcome />}
+    {pages.length ? pages.map((page) => <Card page={page} />) : <Welcome />}
   </section>
 </Layout>

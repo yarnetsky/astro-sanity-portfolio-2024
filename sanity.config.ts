@@ -21,13 +21,18 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schema";
+import { tags } from 'sanity-plugin-tags';
+
 
 export default defineConfig({
   name: "project-name",
   title: "Project Name",
   projectId,
   dataset,
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool(), 
+    tags({}), 
+    visionTool()],
   schema: {
     types: schemaTypes,
   },

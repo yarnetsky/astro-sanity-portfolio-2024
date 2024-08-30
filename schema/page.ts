@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType, defineArrayMember } from 'sanity';
 
 export default defineType({
   name: 'page',
@@ -20,6 +20,14 @@ export default defineType({
         source: 'title',
         maxLength: 96,
       },
+    }),
+    defineField({
+      name: 'sections',
+      title: 'Sections',
+      type: 'tags',
+      options: {
+        includeFromRelated: 'sections'
+      }
     }),
     defineField({
       name: 'mainImage',

@@ -3,27 +3,28 @@ import type { PortableTextBlock } from "@portabletext/types";
 import type { ImageAsset, Slug } from "@sanity/types";
 import groq from "groq";
 
-export async function getPosts(): Promise<Post[]> {
+export async function getPages(): Promise<Page[]> {
   return await sanityClient.fetch(
-    groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
+    groq`*[_type == "page" && defined(slug.current)] | order(_createdAt desc)`
   );
 }
 
-export async function getPost(slug: string): Promise<Post> {
+export async function getPage(slug: string): Promise<Page> {
   return await sanityClient.fetch(
-    groq`*[_type == "post" && slug.current == $slug][0]`,
+    groq`*[_type == "page" && slug.current == $slug][0]`,
     {
       slug,
     }
   );
 }
 
-export interface Post {
-  _type: "post";
+export interface Page {
+  _type: "page";
   _createdAt: string;
   title?: string;
+  sections: Sections[];
   slug: Slug;
   excerpt?: string;
   mainImage?: ImageAsset;
-  body: PortableTextBlock[];
+  content: PortableTextBlock[];
 }
