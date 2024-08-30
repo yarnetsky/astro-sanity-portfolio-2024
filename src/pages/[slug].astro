@@ -21,7 +21,7 @@ const page = await getPage(slug);
 
 <Layout title={page.title!}>
   <section class="page">
-    {
+  <!--  {
       page.mainImage ? (
         <img
           class="page__cover"
@@ -31,7 +31,7 @@ const page = await getPage(slug);
       ) : (
         <div class="page__cover--none" />
       )
-    }
+    }  -->
     <div class="page__container">
       <h1 class="page__title">{page.title}</h1>
       <p class="page__excerpt">{page.excerpt}</p>
@@ -50,12 +50,17 @@ const page = await getPage(slug);
   .page {
     width: 100%;
     margin: var(--space-1) 0 var(--space-4);
+    border: var(--border-1) solid var(--gray-600);
+    padding: 0;
 
     & .page__cover,
     & .page__cover--none {
       width: 100%;
-      height: 200px;
+      height: auto;
       object-fit: cover;
+      padding: 0;
+      margin: 0;
+      border-bottom: var(--border-1) solid var(--gray-600);
     }
 
     & .page__cover--none {
@@ -63,16 +68,17 @@ const page = await getPage(slug);
     }
 
     & .page__container {
-      padding: 0 var(--space-3);
+      padding: 0;
     }
 
     & .page__content {
-      font-family: var(--font-family-serif);
+      font-family: var(--font-family-sans);
       font-weight: 400;
-      font-size: var(--font-size-4);
-      line-height: var(--line-height-5);
+      font-size: var(--font-size-3);
+      line-height: var(--line-height-4);
       letter-spacing: -0.02em;
-      margin-top: var(--space-6);
+      margin-top: var(--space-1);
+      padding: var(--space-6);
 
       /* Targeting tags in PortableText */
       & blockquote {
@@ -88,25 +94,31 @@ const page = await getPage(slug);
     }
 
     & .page__title {
-      font-family: var(--font-family-sans);
+      font-family: var(--font-family-serif);
       font-size: var(--font-size-7);
-      line-height: var(--line-height-6);
-      margin: var(--space-4) 0;
-      font-weight: 800;
+      line-height: var(--line-height-8);
+      margin: var(--space-2) 0;
+      padding: var(--space-5) var(--space-6);
+      font-weight: 400;
+      border-bottom: var(--border-1) solid var(--gray-600);
     }
 
     & .page__excerpt {
       font-family: var(--font-family-serif);
+      padding: var(--space-5) var(--space-6);
       font-size: var(--font-size-5);
-      line-height: var(--line-height-4);
-      margin-top: 0;
+      line-height: var(--line-height-6);
+      margin: 0;
       font-weight: 400;
+      border-bottom: var(--border-1) solid var(--gray-600);
+
     }
 
     & .page__date {
       font-family: var(--font-family-sans);
       font-weight: 600;
       font-size: var(--font-size-1);
+      padding: var(--space-2) var(--space-6);
       line-height: var(--line-height-1);
       margin-top: var(--space-4);
     }
@@ -116,15 +128,14 @@ const page = await getPage(slug);
     .page {
       & .page__cover,
       & .page__cover--none {
-        width: 750px;
-        height: 380px;
+        
       }
 
       & .page__title {
-        font-size: var(--font-size-10);
-        line-height: var(--line-height-10);
-        margin: var(--space-6) 0 0;
-        letter-spacing: -0.025em;
+        font-size: var(--font-size-8);
+        line-height: var(--line-height-8);
+        padding: var(--space-6) var(--space-6);
+        margin: 0 0;
       }
 
       & .page__excerpt {
@@ -141,7 +152,8 @@ const page = await getPage(slug);
       }
 
       & .page__content {
-        margin-top: var(--space-7);
+        font-family: var(--font-family-sans);
+        margin-top: var(--space-0);
       }
     }
   }

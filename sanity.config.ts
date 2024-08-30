@@ -22,16 +22,18 @@ import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schema";
 import { tags } from 'sanity-plugin-tags';
+import { media } from 'sanity-plugin-media';
 
 
 export default defineConfig({
-  name: "project-name",
-  title: "Project Name",
+  name: "jerry-yarnetsky",
+  title: "Jerry Yarnetsky",
   projectId,
   dataset,
   plugins: [
     structureTool(), 
     tags({}), 
+    media(),
     visionTool()],
   schema: {
     types: schemaTypes,
