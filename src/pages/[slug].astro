@@ -78,7 +78,7 @@ const page = await getPage(slug);
       line-height: var(--line-height-4);
       letter-spacing: -0.02em;
       margin-top: var(--space-1);
-      padding: var(--space-6);
+      padding: 0 var(--space-5) var(--space-5) var(--space-5);
 
       /* Targeting tags in PortableText */
       & blockquote {
@@ -94,18 +94,18 @@ const page = await getPage(slug);
     }
 
     & .page__title {
-      font-family: var(--font-family-serif);
+      font-family: var(--font-family-sans);
       font-size: var(--font-size-7);
       line-height: var(--line-height-8);
       margin: var(--space-2) 0;
-      padding: var(--space-5) var(--space-6);
-      font-weight: 400;
+      padding: var(--space-4) var(--space-5);
+      font-weight: 800;
       border-bottom: var(--border-1) solid var(--gray-600);
     }
 
     & .page__excerpt {
       font-family: var(--font-family-serif);
-      padding: var(--space-5) var(--space-6);
+      padding: var(--space-5) var(--space-5);
       font-size: var(--font-size-5);
       line-height: var(--line-height-6);
       margin: 0;
@@ -118,7 +118,7 @@ const page = await getPage(slug);
       font-family: var(--font-family-sans);
       font-weight: 600;
       font-size: var(--font-size-1);
-      padding: var(--space-2) var(--space-6);
+      padding: var(--space-2) var(--space-5);
       line-height: var(--line-height-1);
       margin-top: var(--space-4);
     }
@@ -134,7 +134,7 @@ const page = await getPage(slug);
       & .page__title {
         font-size: var(--font-size-8);
         line-height: var(--line-height-8);
-        padding: var(--space-6) var(--space-6);
+        padding: var(--space-4) var(--space-6);
         margin: 0 0;
       }
 
