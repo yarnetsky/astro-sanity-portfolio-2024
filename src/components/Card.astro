@@ -33,11 +33,18 @@ const { page } = Astro.props;
     </h3>
     <p class="card__excerpt">{page.excerpt}</p>
      <p class="card__date">
-      <div class="section-list">
-        {page.sections}
-          </div>
+      {page.tags && (
+          <p class="section-list">
+            {page.tags.map((tag, index) => (
+              <span>
+                {index > 0 && ", "}
+                {tag}
+              </span>
+            ))}
+          </p>
+        )}
       </div>
-      <!-- {formatDate(page._createdAt)} -->
+      
     </p>
   </div>
 </div>

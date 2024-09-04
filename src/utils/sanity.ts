@@ -14,7 +14,8 @@ export async function getPage(slug: string): Promise<Page> {
     groq`*[_type == "page" && slug.current == $slug][0]`,
     {
       slug,
-    }
+      
+  }
   );
 }
 
@@ -22,7 +23,7 @@ export interface Page {
   _type: "page";
   _createdAt: string;
   title?: string;
-  sections: string[];
+  tags: string[];
   slug: Slug;
   excerpt?: string;
   mainImage?: ImageAsset;

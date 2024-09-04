@@ -2,7 +2,6 @@
 import type { InferGetStaticParamsType } from "astro";
 import { PortableText } from "astro-portabletext";
 import Layout from "../layouts/Layout.astro";
-import { formatDate } from "../utils";
 import { urlFor } from "../utils/image";
 import { getPage, getPages } from "../utils/sanity";
 
@@ -15,31 +14,46 @@ export async function getStaticPaths() {
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 const { slug } = Astro.params as Params;
-
 const page = await getPage(slug);
+
+
 ---
 
 <Layout title={page.title!}>
   <section class="page">
-  <!--  {
-      page.mainImage ? (
+
+{page.mainImage && (
         <img
           class="page__cover"
           src={urlFor(page.mainImage).url()}
           alt="Cover image"
-        />
-      ) : (
-        <div class="page__cover--none" />
-      )
-    }  -->
+        /> 
+      )}
+
     <div class="page__container">
       <h1 class="page__title">{page.title}</h1>
-      <p class="page__excerpt">{page.excerpt}</p>
-      <p class="page__date">
-        {page.sections}
-      </p>
+
+{page.excerpt && (
+        <!-- Your section content -->
+        <p class="page__excerpt">{page.excerpt}</p>
+    )}
+
+<div class="page__date">
+        {page.tags && (
+          <ul>
+            {page.tags.map((tag, index) => (
+              <li>
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       <div class="page__content">
-        <PortableText value={page.content} />
+        <PortableText 
+            value={page.content}
+            />
       </div>
     </div>
   </section>

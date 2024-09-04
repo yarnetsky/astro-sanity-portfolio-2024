@@ -23,12 +23,13 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'sections',
-      title: 'Sections',
-      type: 'tags',
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [{ type: 'string' }],
       options: {
-        includeFromRelated: 'sections'
-      }
+        layout: 'tags',
+      },
     }),
     defineField({
       name: 'mainImage',
