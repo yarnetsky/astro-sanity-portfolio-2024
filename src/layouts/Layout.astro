@@ -1,6 +1,7 @@
 ---
 // https://docs.astro.build/en/guides/view-transitions/
 import { ViewTransitions } from 'astro:transitions';
+import Navigation from '../components/navigation.astro';
 
 interface Props {
   title: string;
@@ -54,7 +55,9 @@ const { title } = Astro.props;
           >Jerry Yarnetsky</a
         >
       </header>
+      
       <main>
+      <Navigation />
         <slot />
       </main>
       <footer class="footer">

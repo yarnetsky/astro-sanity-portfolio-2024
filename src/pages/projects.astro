@@ -1,16 +1,17 @@
 ---
 import Card from "../components/Card.astro";
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
-
 import { getPages } from "../utils/sanity";
 
+
 const pages = await getPages();
+const filteredPages = pages.filter(page => page.tags.includes('Projects'));
 ---
 
-<Layout title="Jerry Yarnetsky, MLS">
+<Layout title="Jerry Yarnetsky: Projects">
 
   <section>
-    {pages.map((page) => <Card page={page} />)}
+    {filteredPages.map((page) => <Card page={page} />)}
   </section>
 </Layout>
+

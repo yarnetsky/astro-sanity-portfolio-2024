@@ -20,6 +20,7 @@ const page = await getPage(slug);
 ---
 
 <Layout title={page.title!}>
+  
   <section class="page">
 
 {page.mainImage && (
@@ -30,7 +31,7 @@ const page = await getPage(slug);
         /> 
       )}
 
-    <div class="page__container">
+<div class="page__container">
       <h1 class="page__title">{page.title}</h1>
 
 {page.excerpt && (
