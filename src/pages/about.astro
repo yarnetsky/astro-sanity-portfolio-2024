@@ -3,7 +3,6 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import { getPages } from "../utils/sanity";
 
-
 const pages = await getPages();
 const filteredPages = pages.filter(page => page.tags.includes('About'));
 ---

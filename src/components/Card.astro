@@ -32,7 +32,7 @@ const { page } = Astro.props;
       </a>
     </h3>
     <p class="card__excerpt">{page.excerpt}</p>
-     <p class="card__date">
+  <!--  <p class="card__date">
       {page.tags && (
           <p class="section-list">
             {page.tags.map((tag, index) => (
@@ -42,10 +42,8 @@ const { page } = Astro.props;
               </span>
             ))}
           </p>
-        )}
-      </div>
-      
-    </p>
+        )} 
+    </p>-->
   </div>
 </div>
 
@@ -56,7 +54,7 @@ const { page } = Astro.props;
     padding: var(--space-3);
     margin: var(--space-4);
     position: relative;
-    border: 1px solid #ced2d9;
+    box-shadow: 3px 3px 10px #ccc;
 
     & .card__container {
       margin: 0 var(--space-1) 0;
@@ -127,7 +125,7 @@ const { page } = Astro.props;
 
   @media (min-width: 575px) {
     .card {
-      border: 1px solid #ced2d9;
+      
 
       & .card__title {
         margin-top: var(--space-4);
@@ -138,6 +136,7 @@ const { page } = Astro.props;
   @media (min-width: 800px) {
     .card {
       flex-direction: row;
+      
 
       & .card__container {
         margin: 0 var(--space-4) 0;

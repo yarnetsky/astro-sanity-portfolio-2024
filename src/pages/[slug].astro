@@ -35,7 +35,6 @@ const page = await getPage(slug);
       <h1 class="page__title">{page.title}</h1>
 
 {page.excerpt && (
-        <!-- Your section content -->
         <p class="page__excerpt">{page.excerpt}</p>
     )}
 
@@ -64,8 +63,7 @@ const page = await getPage(slug);
 
   .page {
     width: 100%;
-    margin: var(--space-1) 0 var(--space-4);
-    border: var(--border-1) solid var(--gray-600);
+    margin: var(--space-0) 0 var(--space-4);
     padding: 0;
 
     & .page__cover,
@@ -88,12 +86,12 @@ const page = await getPage(slug);
 
     & .page__content {
       font-family: var(--font-family-sans);
-      font-weight: 400;
+      font-weight: 200;
       font-size: var(--font-size-3);
       line-height: var(--line-height-4);
       letter-spacing: -0.02em;
       margin-top: var(--space-1);
-      padding: 0 var(--space-5) var(--space-5) var(--space-5);
+      padding: 0 var(--space-6) var(--space-5) var(--space-6);
 
       /* Targeting tags in PortableText */
       & blockquote {
@@ -120,7 +118,7 @@ const page = await getPage(slug);
 
     & .page__excerpt {
       font-family: var(--font-family-serif);
-      padding: var(--space-5) var(--space-5);
+      padding: var(--space-5) var(--space-6);
       font-size: var(--font-size-5);
       line-height: var(--line-height-6);
       margin: 0;
