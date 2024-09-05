@@ -14,7 +14,6 @@ export async function getPage(slug: string): Promise<Page> {
     groq`*[_type == "page" && slug.current == $slug][0]`,
     {
       slug,
-      
   }
   );
 }
