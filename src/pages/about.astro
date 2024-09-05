@@ -10,7 +10,15 @@ const filteredPages = pages.filter(page => page.tags.includes('About'));
 <Layout title="About Jerry Yarnetsky.">
 
   <section>
+
+    <h2>About Me</h2>
+
     {filteredPages.map((page) => <Card page={page} />)}
   </section>
 </Layout>
 
+<style>
+  h2 {
+    padding: var(--space-3) var(--space-6);
+  }
+  </style>
