@@ -11,14 +11,9 @@ const filteredPages = pages.filter(page => page.tags && page.tags.includes('Arch
 
   <section>
 
-    <h2>Past Projects of Note</h2>
+    <h2 class="section__title">Past Projects of Note</h2>
 
     {filteredPages.map((page) => <Card page={page} />)}
   </section>
 </Layout>
 
-<style>
-  h2 {
-    padding: var(--space-3) var(--space-6);
-  }
-  </style>

@@ -31,8 +31,8 @@ const { page } = Astro.props;
         {page.title}
       </a>
     </h3>
-    <p class="card__excerpt">{page.excerpt}</p>
-  <!--  <p class="card__date">
+     <!-- <p class="card__excerpt">{page.excerpt}</p>
+  <p class="card__date">
       {page.tags && (
           <p class="section-list">
             {page.tags.map((tag, index) => (
@@ -74,9 +74,9 @@ const { page } = Astro.props;
 
     & .card__title {
       font-family: var(--font-family-sans);
-      font-weight: 800;
-      font-size: var(--font-size-7);
-      line-height: var(--line-height-6);
+      font-weight: 600;
+      font-size: var(--font-size-6);
+      line-height: var(--line-height-5);
       letter-spacing: -0.025em;
       margin: var(--space-3) 0;
     }

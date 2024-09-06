@@ -35,9 +35,11 @@ const page = await getPage(slug);
       <h1 class="page__title">{page.title}</h1>
 
 {page.excerpt && (
-        <p class="page__excerpt">
-          {page.excerpt}
-        </p>
+        <div class="page__excerpt">
+          <PortableText 
+            value={page.excerpt}
+            />
+        </div>
     )}
 <!--
 <div class="page__date">
