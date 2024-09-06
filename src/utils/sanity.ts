@@ -19,12 +19,12 @@ export async function getPage(slug: string): Promise<Page> {
 }
 
 export interface Page {
-  _type: "page";
+  _type: 'page';
   _createdAt: string;
   title?: string;
   tags: string[];
   slug: Slug;
-  excerpt?: string;
+  excerpt?: PortableTextBlock[];
   mainImage?: ImageAsset;
   content: PortableTextBlock[];
 }
