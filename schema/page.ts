@@ -70,8 +70,10 @@ export default defineType({
     defineField({
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'text',
-      rows: 4,
+      type: 'array',
+      of: [
+        { type: 'block' },
+      ]
     }),
     defineField({
       name: 'date',

@@ -3,15 +3,16 @@ import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 import { getPages } from "../utils/sanity";
 
-
 const pages = await getPages();
-const filteredPages = pages.filter(page => page.tags && page.tags.includes('Service'));
+const filteredPages = pages.filter(page => page.tags && page.tags.includes('Archives'));
 ---
 
-<Layout title="Jerry Yarnetsky: Service">
+<Layout title="Jerry Yarnetsky: Past Projects of Note.">
 
   <section>
-    <h2>Service</h2>
+
+    <h2>Past Projects of Note</h2>
+
     {filteredPages.map((page) => <Card page={page} />)}
   </section>
 </Layout>
@@ -21,4 +22,3 @@ const filteredPages = pages.filter(page => page.tags && page.tags.includes('Serv
     padding: var(--space-3) var(--space-6);
   }
   </style>
-

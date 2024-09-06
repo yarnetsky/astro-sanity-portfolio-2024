@@ -35,9 +35,11 @@ const page = await getPage(slug);
       <h1 class="page__title">{page.title}</h1>
 
 {page.excerpt && (
-        <p class="page__excerpt">{page.excerpt}</p>
+        <p class="page__excerpt">
+          {page.excerpt}
+        </p>
     )}
-
+<!--
 <div class="page__date">
         {page.tags && (
           <ul>
@@ -48,7 +50,7 @@ const page = await getPage(slug);
             ))}
           </ul>
         )}
-      </div>
+      </div>  -->
 
       <div class="page__content">
         <PortableText 
@@ -118,13 +120,9 @@ const page = await getPage(slug);
 
     & .page__excerpt {
       font-family: var(--font-family-serif);
-      padding: var(--space-5) var(--space-6);
-      font-size: var(--font-size-5);
-      line-height: var(--line-height-6);
+      padding: var(--space-4) var(--space-6);
       margin: 0;
-      font-weight: 400;
       border-bottom: var(--border-1) solid var(--blue-600);
-
     }
 
     & .page__date {
@@ -154,8 +152,6 @@ const page = await getPage(slug);
       & .page__excerpt {
         font-size: var(--font-size-5);
         line-height: var(--line-height-5);
-        margin-top: var(--space-3);
-        margin-bottom: var(--space-3);
       }
 
       & .page__date {

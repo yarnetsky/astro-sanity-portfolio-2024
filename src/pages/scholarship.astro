@@ -5,7 +5,7 @@ import { getPages } from "../utils/sanity";
 
 
 const pages = await getPages();
-const filteredPages = pages.filter(page => page.tags.includes('Scholarship'));
+const filteredPages = pages.filter(page => page.tags && page.tags.includes('Scholarship'));
 ---
 
 <Layout title="Jerry Yarnetsky: Scholarship">
