@@ -51,7 +51,7 @@ const { page } = Astro.props;
   .card {
     display: flex;
     flex-direction: column;
-    padding: var(--space-5) var(--space-6) var(--space-3) var(--space-6);
+    padding: var(--space-5) var(--space-5) var(--space-1) var(--space-5);
     margin: var(--space-4) 0;
     position: relative;
     border-top: 1px solid var(--blue-600);
@@ -74,8 +74,8 @@ const { page } = Astro.props;
 
     & .card__title {
       font-family: var(--font-family-sans);
-      font-weight: 600;
-      font-size: var(--font-size-6);
+      font-weight: 800;
+      font-size: var(--font-size-5);
       line-height: var(--line-height-5);
       letter-spacing: -0.025em;
       margin: var(--space-3) 0;
@@ -136,6 +136,7 @@ const { page } = Astro.props;
   @media (min-width: 800px) {
     .card {
       flex-direction: row;
+      padding: var(--space-5) var(--space-6) var(--space-3) var(--space-6);
       
 
       & .card__container {
