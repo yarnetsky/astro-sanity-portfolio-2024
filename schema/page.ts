@@ -82,6 +82,15 @@ export default defineType({
       initialValue: () => new Date().toISOString(),
     }),
   ],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'DateDesc',
+      by: [
+        {field: 'date', direction: 'desc'}
+      ]
+    }
+  ],
   preview: {
     select: {
       title: 'title',

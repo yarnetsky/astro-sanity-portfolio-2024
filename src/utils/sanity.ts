@@ -5,7 +5,7 @@ import groq from "groq";
 
 export async function getPages(): Promise<Page[]> {
   return await sanityClient.fetch(
-    groq`*[_type == "page" && defined(slug.current)] | order(_createdAt desc)`
+    groq`*[_type == "page" && defined(slug.current)] | order(date desc)`
   );
 }
 
