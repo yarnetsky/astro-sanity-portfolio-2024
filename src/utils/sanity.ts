@@ -27,4 +27,5 @@ export interface Page {
   excerpt?: PortableTextBlock[];
   mainImage?: ImageAsset;
   content: PortableTextBlock[];
+  body: PortableTextBlock[];
 }
