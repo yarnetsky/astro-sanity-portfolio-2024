@@ -1,9 +1,9 @@
 ---
 import type { InferGetStaticParamsType } from "astro";
-import { PortableText } from "astro-portabletext";
 import Layout from "../layouts/Layout.astro";
 import { urlFor } from "../utils/image";
 import { getPage, getPages } from "../utils/sanity";
+import PortableText from "../components/PortableText.astro";
 
 export async function getStaticPaths() {
   const pages = await getPages();
@@ -37,7 +37,7 @@ const page = await getPage(slug);
 {page.excerpt && (
         <div class="page__excerpt">
           <PortableText 
-            value={page.excerpt}  
+            portableText={page.excerpt}  
             />
         </div>
     )}
@@ -56,7 +56,7 @@ const page = await getPage(slug);
 
       <div class="page__content">
         <PortableText 
-            value={page.body}
+            portableText={page.body}
             />
       </div>
     </div>
@@ -135,6 +135,9 @@ const page = await getPage(slug);
       line-height: var(--line-height-1);
       margin-top: var(--space-4);
     }
+    
+  picture img {width: 100%; height: auto;}
+
   }
 
 
