@@ -1,21 +1,21 @@
 ---
 import { formatDate } from "../utils";
 import { urlFor } from "../utils/image";
-import type { Page } from "../utils/sanity";
+import type { Project } from "../utils/sanity";
 
 interface Props {
-  page: Page;
+  project: Project;
 }
 
-const { page } = Astro.props;
+const { project } = Astro.props;
 ---
 
 <div class="card">
   {
-    page.mainImage ? (
+    project.mainImage ? (
       <img
         class="card__cover"
-        src={urlFor(page.mainImage).width(500).height(300).url()}
+        src={urlFor(project.mainImage).width(500).height(300).url()}
         alt="Cover image"
       />
     ) : (
@@ -26,16 +26,16 @@ const { page } = Astro.props;
     <h3 class="card__title">
       <a
         class="card__link"
-        href={`${page.slug.current}`}
+        href={`${project.slug.current}`}
       >
         {page.title}
       </a>
     </h3>
-     <!-- <p class="card__excerpt">{page.excerpt}</p>
+     <!-- <p class="card__excerpt">{project.excerpt}</p>
   <p class="card__date">
-      {page.tags && (
+      {project.tags && (
           <p class="section-list">
-            {page.tags.map((tag, index) => (
+            {project.tags.map((tag, index) => (
               <span>
                 {index > 0 && ", "}
                 {tag}

@@ -1,7 +1,7 @@
 ---
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
-import { getPages } from "../utils/sanity";
+import { getPage, getPages } from "../utils/sanity";
 
 const pages = await getPages();
 const filteredPages = pages.filter(page => page.tags && page.tags.includes('Featured'));
@@ -14,7 +14,8 @@ const filteredPages = pages.filter(page => page.tags && page.tags.includes('Feat
   <section>
     <h2 class="section__title">Featured Projects</h2>
 
-    {filteredPages.map((page) => <Card page={page} />)}
+
+
   </section>
 </Layout>
 

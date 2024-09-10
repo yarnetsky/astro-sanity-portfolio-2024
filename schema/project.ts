@@ -2,8 +2,8 @@ import { defineField, defineType } from 'sanity';
 
 
 export default defineType({
-  name: 'page',
-  title: 'Page',
+  name: 'project',
+  title: 'Project',
   type: 'document',
   fields: [
     defineField({
@@ -40,30 +40,56 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
+        { type: 'block' },
+        {
+          type: 'image',
+          options: {
+            hotspot: true,
+          },
+          fields: [
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Image caption',
+              description: 'Caption displayed below the image.',
+            },
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              description: 'Important for SEO and accessiblity.',
+            },
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'array',
-      of: [{ type: 'block' }],
-    }),
-    defineField({
-      name: 'featuredProjects',
-      title: 'Featured Projects',
-      type: 'array',
       of: [
-    {
-      type: 'reference',
-      to: [
-        {type: 'project'}
+        { type: 'block' },
       ]
-    }
-  ]
-}),
+    }),
     defineField({
       name: 'date',
       title: 'Date',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
     }),
+  ],
+  orderings: [
+    {
+      title: 'Date, New',
+      name: 'DateDesc',
+      by: [
+        {field: 'date', direction: 'desc'}
+      ]
+    }
   ],
   preview: {
     select: {

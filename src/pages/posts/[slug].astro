@@ -1,81 +1,81 @@
 ---
 import type { InferGetStaticParamsType } from "astro";
 import { PortableText } from "astro-portabletext";
-import Layout from "../layouts/Layout.astro";
-import { urlFor } from "../utils/image";
-import { getPage, getPages } from '../utils/sanity';
+import Layout from "../../layouts/Layout.astro";
+import { urlFor } from "../../utils/image";
+import { getPost, getPosts } from "../../utils/sanity";
 
 export async function getStaticPaths() {
-  const pages = await getPages();
-  return pages.map((page) => ({
-    params: { slug: page.slug.current },
+  const posts = await getPosts();
+
+  return posts.map((post) => ({
+    params: { slug: post.slug.current },
   }));
 }
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 const { slug } = Astro.params as Params;
-const page = await getPage(slug);
+const post = await getPost(slug);
 
 
 ---
 
-<Layout title={page.title!}>
+<Layout title={post.title!}>
   
-  <section class="page">
+  <section class="post">
 
-{page.mainImage && (
+{post.mainImage && (
         <img
-          class="page__cover"
-          src={urlFor(page.mainImage).url()}
+          class="post__cover"
+          src={urlFor(post.mainImage).url()}
           alt="Cover image"
         /> 
       )}
 
-<div class="page__container">
-      <h1 class="page__title">{page.title}</h1>
+<div class="post__container">
+      <h1 class="post__title">{post.title}</h1>
 
-{page.excerpt && (
-        <div class="page__excerpt">
+{post.excerpt && (
+        <div class="post__excerpt">
           <PortableText 
-            value={page.excerpt}  
+            value={post.excerpt}  
             />
-        </div>)
+        </div>
     )}
 
-      <div class="page__content">
-        
-{page.featuredProjects && page.featuredProjects.length > 0 && (
-          <div class="featured-projects">
-            {page.featuredProjects.map((project) => (
-                          <div class="project" key={project._id}>
-                            <h2>{project.title}</h2>
-                            {project.mainImage && (
-                              <img
-                                class="project__image"
-                                src={urlFor(project.mainImage).url()}
-                                alt={project.title}
-                              />
-                            )}
-                            <PortableText 
-                              value={project.excerpt} 
-                              />
-                        ))}
-                      ))}
-            </div>
-      </div>  
+<div class="post__date">
+
+       <p>Posted on: {post.date}</p>
+
+        {post.tags && (
+          <ul>
+            {post.tags.map((tag, index) => (
+              <li>
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div class="post__content">
+        <PortableText 
+            value={post.content}
+            />
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
 
-  .page {
+  .post {
     width: 100%;
     margin: var(--space-0) 0 var(--space-4);
     padding: 0;
 
-    & .page__cover,
-    & .page__cover--none {
+    & .post__cover,
+    & .post__cover--none {
       width: 100%;
       height: auto;
       object-fit: cover;
@@ -84,15 +84,15 @@ const page = await getPage(slug);
       border-bottom: var(--border-1) solid var(--blue-600);
     }
 
-    & .page__cover--none {
+    & .post__cover--none {
       background: var(--black);
     }
 
-    & .page__container {
+    & .post__container {
       padding: 0;
     }
 
-    & .page__content {
+    & .post__content {
       font-family: var(--font-family-sans);
       font-weight: 300;
       font-size: var(--font-size-3);
@@ -114,7 +114,7 @@ const page = await getPage(slug);
       }
     }
 
-    & .page__title {
+    & .post__title {
       font-family: var(--font-family-sans);
       font-size: var(--font-size-7);
       line-height: var(--line-height-8);
@@ -124,14 +124,14 @@ const page = await getPage(slug);
       border-bottom: var(--border-1) solid var(--blue-600);
     }
 
-    & .page__excerpt {
+    & .post__excerpt {
       font-family: var(--font-family-serif);
       padding: var(--space-4) var(--space-4);
       margin: 0;
       border-bottom: var(--border-1) solid var(--blue-600);
     }
 
-    & .page__date {
+    & .post__date {
       font-family: var(--font-family-sans);
       font-weight: 600;
       font-size: var(--font-size-1);
@@ -144,31 +144,31 @@ const page = await getPage(slug);
 
 
   @media (min-width: 800px) {
-    .page {
-      & .page__cover,
-      & .page__cover--none {
+    .post {
+      & .post__cover,
+      & .post__cover--none {
         
       }
 
-      & .page__title {
+      & .post__title {
         font-size: var(--font-size-8);
         line-height: var(--line-height-8);
         padding: var(--space-6) var(--space-6);
         margin: 0 0;
       }
 
-      & .page__excerpt {
+      & .post__excerpt {
         font-size: var(--font-size-5);
         line-height: var(--line-height-5);
       }
 
-      & .page__date {
+      & .post__date {
         font-size: var(--font-size-3);
         line-height: var(--line-height-2);
         margin-top: var(--space-0);
       }
 
-      & .page__content {
+      & .post__content {
         font-family: var(--font-family-sans);
         margin-top: var(--space-0);
         padding: 0 var(--space-6) var(--space-5) var(--space-6);

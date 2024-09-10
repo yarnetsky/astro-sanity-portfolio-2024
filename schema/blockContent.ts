@@ -65,7 +65,7 @@ export default defineType({
           type: 'string',
           title: 'Alternative text',
           options: {
-            isHighlighted: true,
+            
           },
         },
         {
@@ -73,7 +73,7 @@ export default defineType({
           type: 'string',
           title: 'Caption',
           options: {
-            isHighlighted: true,
+            
           },
         },
       ],
