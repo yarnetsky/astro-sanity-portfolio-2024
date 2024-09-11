@@ -78,8 +78,5 @@ export default defineType({
         },
       ],
     }),
-    // defineArrayMember({
-    //   type: 'youTube',
-    // }),
   ],
 });
