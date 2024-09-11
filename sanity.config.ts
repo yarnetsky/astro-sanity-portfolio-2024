@@ -24,6 +24,10 @@ import { schemaTypes } from "./schema";
 import { tags } from 'sanity-plugin-tags';
 import { media } from 'sanity-plugin-media';
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
+import { presentationTool } from 'sanity/presentation';
+
+const SANITY_STUDIO_PREVIEW_URL =
+  process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000';
 
 
 export default defineConfig({
@@ -36,6 +40,9 @@ export default defineConfig({
     tags({}),
     media(),
     vercelDeployTool(),
+    presentationTool({
+      previewUrl: SANITY_STUDIO_PREVIEW_URL,
+    }),
     visionTool(),
   ],
   schema: {

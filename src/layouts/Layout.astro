@@ -2,12 +2,21 @@
 // https://docs.astro.build/en/guides/view-transitions/
 import { ViewTransitions } from 'astro:transitions';
 import Navigation from '../components/navigation.astro';
+import {VisualEditing} from '@sanity/astro/visual-editing'
+
+import {loadQuery} from '../loadQuery'
+
+const {data: movies} = await loadQuery<Array<{title: string}>>({
+  query: `*[_type == 'page']`,
+})
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const visualEditingEnabled = import.meta.env.PUBLIC_SANITY_VISUAL_EDITING_ENABLED == 'true'
+
 ---
 
 <!DOCTYPE html>
@@ -59,6 +68,7 @@ const { title } = Astro.props;
       <main>
       <Navigation />
         <slot />
+         <VisualEditing enabled={visualEditingEnabled} zIndex={1000} />
       </main>
       <footer class="footer">
         <p class="footer__text">
