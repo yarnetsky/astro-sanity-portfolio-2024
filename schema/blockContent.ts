@@ -1,4 +1,4 @@
-import {defineType, defineArrayMember} from 'sanity'
+import {defineType, defineArrayMember} from 'sanity';
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -15,7 +15,7 @@ export default defineType({
   name: 'blockContent',
   type: 'array',
   of: [
-    {
+    defineArrayMember({
       title: 'Block',
       type: 'block',
       // Styles let you set what your user can mark up blocks with. These
@@ -55,8 +55,8 @@ export default defineType({
           },
         ],
       },
-    },
-    {
+    }),
+    defineArrayMember({
       type: 'image',
       options: { hotspot: true },
       fields: [
@@ -77,6 +77,9 @@ export default defineType({
           },
         },
       ],
-    },
+    }),
+    // defineArrayMember({
+    //   type: 'youTube',
+    // }),
   ],
 });

@@ -23,18 +23,21 @@ import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schema";
 import { tags } from 'sanity-plugin-tags';
 import { media } from 'sanity-plugin-media';
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
 
 
 export default defineConfig({
-  name: "jerry-yarnetsky",
-  title: "Jerry Yarnetsky",
+  name: 'jerry-yarnetsky',
+  title: 'Jerry Yarnetsky',
   projectId,
   dataset,
   plugins: [
-    structureTool(), 
-    tags({}), 
+    structureTool(),
+    tags({}),
     media(),
-    visionTool()],
+    vercelDeployTool(),
+    visionTool(),
+  ],
   schema: {
     types: schemaTypes,
   },

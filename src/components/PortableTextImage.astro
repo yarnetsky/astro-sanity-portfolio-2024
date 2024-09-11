@@ -1,7 +1,7 @@
 ---
 import { urlFor } from "../utils/image";
 
-const { asset, alt } = Astro.props.node;
+const { asset, alt, caption } = Astro.props.node;
 
 const url = urlFor(asset).url();
 const webpUrl = urlFor(asset).format("webp").url();
@@ -10,4 +10,5 @@ const webpUrl = urlFor(asset).format("webp").url();
 <picture>
   <source srcset={webpUrl} type="image/webp" />
   <img class="responsive__img" src={url} alt={alt} />
+  <p class="responsive__caption">{caption}</p>
 </picture>
