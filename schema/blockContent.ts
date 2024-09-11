@@ -78,5 +78,8 @@ export default defineType({
         },
       ],
     }),
+    defineArrayMember({
+      type: 'break',
+    }),
   ],
 });
